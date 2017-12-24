@@ -25,6 +25,8 @@ var removeAll = function removeAll() {
 //create "Remove All" button above list
 //on click -> wipe the array -> rerender
 
+var numbers = [55, 101, 1000];
+
 var renderApp = function renderApp() {
     var template = React.createElement(
         'div',
@@ -57,16 +59,13 @@ var renderApp = function renderApp() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item one'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item two'
-            )
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: 'option' },
+                    option
+                );
+            })
         ),
         React.createElement(
             'form',
